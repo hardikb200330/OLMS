@@ -1,0 +1,46 @@
+<template>
+    <div class="container">
+        <div class="navBarChildContainer">
+            <div class="topnav">
+                <p class="name">{memberName}</p>
+                <a onclick={handleLogOut}>Log Out</a>
+                <!-- <a onclick={handleShowDetails}>Show Details</a> -->
+            </div>
+        </div>
+        <div class="cardContainer">
+            <div class="card">
+                <p>
+                    <span class="rupees">₹</span> 
+                    <span class="number">{dueFine}</span>
+                </p> 
+                <p class="fotter">Total Fine</p>
+            </div>
+            <div class="card">
+                <p class="number">{currentlyIssuedBooks}</p>
+                <p class="fotter">Currently Issued Books</p>
+            </div>
+            <div class="card" >
+                <p class="number">{notReturnedBooks}</p>
+                <p class="fotter">Not Returned Books</p>
+            </div>
+        </div>
+        <p class="heading">Currently Issued Books</p>    
+
+
+        <div class="transactionContainer">
+            <lightning-tabset>
+                <lightning-tab label="Currently Issued Books">
+                    <lightning-card class="card slds-card_boundary" title="Currently Issued Books" icon-name="custom:custom1">
+                    <lightning-datatable
+                        key-field="id"
+                        data={dataList}
+                        columns={columnsList}
+                        hide-checkbox-column
+                        ></lightning-datatable>
+                    </lightning-card>
+                </lightning-tab>
+            </lightning-tabset>
+            
+        </div>
+    </div>
+</template>

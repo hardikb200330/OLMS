@@ -1,0 +1,10 @@
+<template>
+    <lightning-modal-header label="Enter Shipment quantity"></lightning-modal-header>
+    <!-- <lightning-modal-body> Content: {content} </lightning-modal-body> -->
+    <lightning-flow 
+        flow-api-name='SF_Creating_Shipment_From_Modal_LWC'
+        flow-input-variables={inputVariables}
+        onstatuschange={handleStatusChange}
+    >
+    </lightning-flow>
+</template>

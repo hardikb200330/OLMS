@@ -1,0 +1,106 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="container">
+        <div class="topnav">
+            <p class="name">{supplierName}</p>
+            <a onclick={handleLogOut}>Log Out</a>
+            <a onclick={handleShowDetails}>Show Details</a>
+        </div>
+        <div class="content">
+
+          <div class="card">
+
+            <lightning-tabset>
+              <lightning-tab label="Open Tenders">
+                <lightning-card class="card slds-card_boundary"  title="Open Tenders" icon-name="custom:custom14">
+                      <!-- <h1>Open Tenders</h1> -->
+                      <!-- <div class="cardItem"> -->
+                          <lightning-datatable
+                            key-field="id"
+                            data={tenderDataList}
+                            columns={tenderColumnList}
+                            hide-checkbox-column
+                            onrowaction={callRowTenderAction}
+                          ></lightning-datatable>
+                      <!-- </div> -->
+                  </lightning-card>
+              </lightning-tab>
+            </lightning-tabset>
+
+          </div>
+
+            <div class="card">
+              <lightning-tabset>
+                <lightning-tab label="New Bids">
+                  <lightning-card class="card slds-card_boundary" title="New Bids" icon-name="custom:custom1">
+                    <lightning-datatable
+                      key-field="id"
+                      data={newBidDataList}
+                      columns={newBidColumnList}
+                      hide-checkbox-column
+                    ></lightning-datatable>
+                  </lightning-card>
+                </lightning-tab>
+
+                <lightning-tab label="Old Bids" title="2nd tab extended title">
+                  <lightning-card class="card slds-card_boundary" title="Old Bids" icon-name="custom:custom2">
+                    <lightning-datatable
+                      key-field="id"
+                      data={bidDataList}
+                      columns={bidColumnList}
+                      hide-checkbox-column
+                    ></lightning-datatable>
+                  </lightning-card>
+                </lightning-tab>
+
+              </lightning-tabset>
+            </div>
+
+
+            <div class="card">
+              <lightning-tabset>
+
+                <lightning-tab label="My Orders">
+                  <lightning-card class="card slds-card_boundary" title="My Orders" icon-name="custom:custom2">
+                    <lightning-datatable
+                      key-field="id"
+                      data={orderDataList}
+                      columns={orderColumnList}
+                      hide-checkbox-column
+                      onrowaction={callRowOrderAction}
+                    ></lightning-datatable>
+                  </lightning-card>
+                </lightning-tab>
+
+                <lightning-tab label="Completed Orders">
+                  <lightning-card class="card slds-card_boundary" title="Completed Orders" icon-name="custom:custom2">
+                    <lightning-datatable
+                      key-field="id"
+                      data={completedOrderDataList}
+                      columns={completedOrderColumnList}
+                      hide-checkbox-column
+                    ></lightning-datatable>
+                  </lightning-card>
+                </lightning-tab>
+
+              </lightning-tabset>
+            </div>
+
+            <div class="card">
+              <lightning-tabset>
+                <lightning-tab label="My Shipments">
+                  <lightning-card class="card slds-card_boundary" title="My Shipments" icon-name="custom:custom2">
+                    <lightning-datatable
+                    key-field="id"
+                    data={shipmentDataList}
+                    columns={shipmentColumnList}
+                    hide-checkbox-column
+                    ></lightning-datatable>
+                  </lightning-card>
+                </lightning-tab>
+              </lightning-tabset>
+                
+            </div>
+        </div>
+    </div>
+</template>
